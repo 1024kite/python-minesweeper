@@ -235,7 +235,7 @@ while True:
             print('请输入查看/排雷/标记')
         if flag == 1:
             print('游戏结束')
-            flag_gameover = input('是否再来一局？（输入是/否）（输入其他默认退出）')
+            flag_gameover = input('是否再来一局？（输入是或否）（输入其他默认退出）')
             if flag_gameover == '是':
                 break
             if flag_gameover != '是':
