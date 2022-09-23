@@ -239,7 +239,7 @@ while True:
             if flag_gameover == '是':
                 break
             if flag_gameover != '是':
-                print('欢迎下次再来~(*^▽^*)')
+                print('欢迎下次再来哦~(*^▽^*)')
                 flag = 2
                 break
     if flag == 2:
