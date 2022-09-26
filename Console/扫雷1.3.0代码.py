@@ -133,7 +133,6 @@ while True:
                     def check_zero(set, mine, frequency, zero_flag):
                         global zero_list
                         list_set[int(set[0]) - 1][int(set[1]) - 1] = mine
-                        print('这个位置的数字是：' + mine)
                         frequency += 1
                         print(set)
                         if mine == '0 ':
@@ -141,6 +140,7 @@ while True:
                             old_set = set
                             for index in zero_flag_view:
                                 print('又一次扫描')
+                                num = '0 '
                                 while num == '0 ':
                                     print('扫描被调用')
                                     print(set)
@@ -148,13 +148,21 @@ while True:
                                     y = index['y']
                                     setx = set[:1]
                                     sety = set[-1:]
-                                    setx = int(setx)
-                                    setx += x
-                                    setx -= 1
-                                    sety = int(sety)
-                                    sety += y
-                                    sety -= 1
-                                    if setx == '9' or setx == '0' or sety == '9' or sety == '0':
+                                    if x == -1:
+                                        setx = int(setx)
+                                        setx -= 2
+                                    else:
+                                        setx = int(setx)
+                                        setx += x
+                                        setx -= 1
+                                    if y == -1:
+                                        sety = int(sety)
+                                        sety -= 2
+                                    else:
+                                        sety = int(sety)
+                                        sety += y
+                                        sety -= 1
+                                    if int(setx) > 9 or int(setx) < 0 or int(sety) > 9 or int(sety) < 0:
                                         break
                                     try:
                                         num = list[setx][sety]
@@ -165,10 +173,13 @@ while True:
                                             break
                                         num += ' '
                                         list_set[setx][sety] = num
+                                        print('翻开了' + str(setx) + str(sety))
                                         frequency += 1
                                         setx += 1
                                         sety += 1
                                         set = str(setx) + str(sety)
+                                        print('x:' + str(x))
+                                        print('y:' + str(y))
                                         print('setx:' + str(setx))
                                         print('sety:' + str(sety))
                                         print('set:' + str(set))
@@ -239,7 +250,7 @@ while True:
             if flag_gameover == '是':
                 break
             if flag_gameover != '是':
-                print('欢迎下次再来哦~(*^▽^*)')
+                print('欢迎下次再来~(*^▽^*)')
                 flag = 2
                 break
     if flag == 2:
