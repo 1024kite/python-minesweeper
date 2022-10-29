@@ -255,7 +255,7 @@ while True:
         print('你的目的是找出所有的雷，这样才会胜利')
         print('')
     elif choose == '3':
-        print('欢迎下次再来(*^▽^*)~~~')
+        print('欢迎下次再来(*^▽^*)~')
         break
     else:
         print('请输入1/2/3')
